@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using NewsFeed.Models;
 using NewsFeed.Services.Interfaces;
 
 namespace NewsFeed.Services
@@ -86,6 +87,14 @@ namespace NewsFeed.Services
             var response = request.GetResponseAsync().Result;
             var responseData = new StreamReader(response.GetResponseStream()).ReadToEnd();
             return responseData;
+        }
+
+        public Tweet CleanText(Tweet tweet)
+        {
+            var cleanTweet = new Tweet();
+            cleanTweet = tweet;
+            cleanTweet.Text = tweet.Text.Split(new[] { "https" }, StringSplitOptions.None)[0];
+            return cleanTweet;
         }
     }
 }

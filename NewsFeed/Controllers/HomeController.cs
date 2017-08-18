@@ -25,7 +25,8 @@ namespace NewsFeed.Controllers
             {
                 var tweetsJson = _twitterService.GetTweetsJson(sn);
                 var tweet = JsonConvert.DeserializeObject<List<Tweet>>(tweetsJson).First();
-                _tweets.Add(tweet);
+                var cleanTweet = _twitterService.CleanText(tweet);
+                _tweets.Add(cleanTweet);
             }
             var sortedTweets =_tweets.OrderByDescending(x => x.Id);
             return View(sortedTweets);
