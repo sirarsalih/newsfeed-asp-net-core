@@ -19,8 +19,8 @@ namespace NewsFeed.Controllers
         public IActionResult Index()
         {
             var tweetsJson = _twitterService.GetTweetsJson("bbcnews");
-            var tweets = JsonConvert.DeserializeObject<List<TweetJson>>(tweetsJson);
-            return View();
+            var tweets = JsonConvert.DeserializeObject<List<Tweet>>(tweetsJson);
+            return View(tweets);
         }
 
         public IActionResult Error()
