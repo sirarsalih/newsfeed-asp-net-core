@@ -11,8 +11,11 @@ namespace NewsFeed.Models
         [JsonProperty("created_at")]
         public string CreatedAt { get; set; }
 
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
         [JsonProperty("id_str")]
-        public string Id { get; set; }
+        public string IdString { get; set; }
 
         [JsonProperty("text")]
         public string Text { get; set; }

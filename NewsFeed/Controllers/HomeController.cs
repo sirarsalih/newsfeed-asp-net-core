@@ -11,7 +11,7 @@ namespace NewsFeed.Controllers
     public class HomeController : Controller
     {
         private readonly ITwitterService _twitterService;
-        private readonly List<string> _screenNames = new List<string>() {"bbcnews", "bbcbreaking", "cnn", "cnnbrk"};
+        private readonly List<string> _screenNames = new List<string>() {"bbcnews", "bbcbreaking", "cnn", "cnnbrk", "reuters", "skynews", "washingtonpost", "ap" };
         private readonly List<Tweet> _tweets = new List<Tweet>();
 
         public HomeController(ITwitterService twitterService)
@@ -27,7 +27,8 @@ namespace NewsFeed.Controllers
                 var tweet = JsonConvert.DeserializeObject<List<Tweet>>(tweetsJson).First();
                 _tweets.Add(tweet);
             }
-            return View(_tweets);
+            var sortedTweets =_tweets.OrderByDescending(x => x.Id);
+            return View(sortedTweets);
         }
 
         public IActionResult Error()
