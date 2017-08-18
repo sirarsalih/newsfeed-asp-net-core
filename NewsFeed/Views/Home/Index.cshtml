@@ -5,11 +5,17 @@
 
 @foreach (var tweet in Model)
 {
-    <div class="tweet">
-        <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text 
-        @if (tweet.Entity.Urls.Count > 0)
-        {
+    if (tweet.Entity.Urls.Count > 0)
+    {
+        <div class="tweet" onclick="location.href = '@tweet.Entity.Urls.First().UrlString';" style="cursor: pointer;">
+            <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
             <a href="@tweet.Entity.Urls.First().UrlString">@tweet.Entity.Urls.First().UrlString</a>
-        }
-    </div>
+        </div>
+    }
+    else
+    {
+        <div class="tweet">
+            <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
+        </div>
+    }
 }
