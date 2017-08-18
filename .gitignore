@@ -1,0 +1,5 @@
+/NewsFeed/bin
+/NewsFeed/obj
+.vs
+*.suo
+*.vssscc
