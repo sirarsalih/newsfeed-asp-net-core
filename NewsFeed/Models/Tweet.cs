@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace NewsFeed.Models
 {
-    public class News
+    public class Tweet
     {
     }
 }
