@@ -11,7 +11,7 @@ namespace NewsFeed.Controllers
     public class HomeController : Controller
     {
         private readonly ITwitterService _twitterService;
-        private readonly List<string> _screenNames = new List<string>() {"bbcnews", "bbcbreaking", "cnn", "cnnbrk", "reuters", "skynews", "washingtonpost", "ap" };
+        private readonly List<string> _screenNames = new List<string>() {"bbcnews", "bbcbreaking", "bbcworld", "cnn", "cnnbrk", "reuters", "skynews", "washingtonpost", "ap" };
         private readonly List<Tweet> _tweets = new List<Tweet>();
 
         public HomeController(ITwitterService twitterService)

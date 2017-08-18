@@ -1,10 +1,15 @@
 ﻿@using System.Collections
+@using System.Linq
 @using NewsFeed.Models
 @model System.Collections.Generic.IEnumerable<Tweet>
 
 @foreach (var tweet in Model)
 {
     <div class="tweet">
-        <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
+        <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text 
+        @if (tweet.Entity.Urls.Count > 0)
+        {
+            <a href="@tweet.Entity.Urls.First().UrlString">@tweet.Entity.Urls.First().UrlString</a>
+        }
     </div>
 }

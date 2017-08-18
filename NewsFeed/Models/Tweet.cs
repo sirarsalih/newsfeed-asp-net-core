@@ -22,5 +22,8 @@ namespace NewsFeed.Models
 
         [JsonProperty("user")]
         public User User { get; set; }
+
+        [JsonProperty("entities")]
+        public Entity Entity { get; set; }
     }
 }
