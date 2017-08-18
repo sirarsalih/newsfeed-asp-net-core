@@ -7,5 +7,6 @@ namespace NewsFeed.Services.Interfaces
 {
     public interface ITwitterService
     {
+        string GetTweetsJson(string screenName);
     }
 }
