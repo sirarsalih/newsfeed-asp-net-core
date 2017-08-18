@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using NewsFeed.Models;
 using NewsFeed.Services.Interfaces;
@@ -19,8 +20,8 @@ namespace NewsFeed.Controllers
         public IActionResult Index()
         {
             var tweetsJson = _twitterService.GetTweetsJson("bbcnews");
-            var tweets = JsonConvert.DeserializeObject<List<Tweet>>(tweetsJson);
-            return View(tweets);
+            var tweet = JsonConvert.DeserializeObject<List<Tweet>>(tweetsJson).First();
+            return View(tweet);
         }
 
         public IActionResult Error()

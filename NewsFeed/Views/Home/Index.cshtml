@@ -1,12 +1,6 @@
-﻿@using System.Collections
-@using NewsFeed.Models
-@model System.Collections.Generic.IEnumerable<Tweet>
+﻿@using NewsFeed.Models
+@model Tweet
 
-<div class="row">
-    @foreach (var tweet in Model)
-    {
-        <div class="col-md-3">
-            <img src="@tweet.User.ProfileImageUrlHttps"> @tweet.User.ScreenName: @tweet.Text
-        </div>
-    }
+<div class="tweet">
+    <img src="@Model.User.ProfileImageUrlHttps"> <strong>@Model.User.Name:</strong> @Model.Text
 </div>
