@@ -19,3 +19,15 @@
         </div>
     }
 }
+
+<script type="text/javascript">
+    window.setInterval(function() {
+        // Send an AJAX request every 5s to poll for changes and update the UI
+        // example with jquery:
+        $.get('/', function (result) {
+            window.location = result;
+            // TODO: use the results returned from your controller action
+            // to update the UI
+        });
+    }, 5000);
+</script>
