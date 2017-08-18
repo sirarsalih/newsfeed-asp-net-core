@@ -11,6 +11,8 @@ namespace NewsFeed.Controllers
     public class HomeController : Controller
     {
         private readonly ITwitterService _twitterService;
+        private readonly List<string> _screenNames = new List<string>() {"bbcnews", "bbcbreaking", "cnn", "cnnbrk"};
+        private readonly List<Tweet> _tweets = new List<Tweet>();
 
         public HomeController(ITwitterService twitterService)
         {
@@ -19,9 +21,13 @@ namespace NewsFeed.Controllers
 
         public IActionResult Index()
         {
-            var tweetsJson = _twitterService.GetTweetsJson("bbcnews");
-            var tweet = JsonConvert.DeserializeObject<List<Tweet>>(tweetsJson).First();
-            return View(tweet);
+            foreach (var sn in _screenNames)
+            {
+                var tweetsJson = _twitterService.GetTweetsJson(sn);
+                var tweet = JsonConvert.DeserializeObject<List<Tweet>>(tweetsJson).First();
+                _tweets.Add(tweet);
+            }
+            return View(_tweets);
         }
 
         public IActionResult Error()
