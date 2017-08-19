@@ -30,7 +30,6 @@ namespace NewsFeed.Services
             var oauth_timestamp = Convert.ToInt64(timeSpan.TotalSeconds).ToString();
 
             // message api details
-            var status = "Updating status via REST API if this works";
             var resource_url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
             
             // create oauth signature
