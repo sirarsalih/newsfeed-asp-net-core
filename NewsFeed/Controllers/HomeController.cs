@@ -44,7 +44,7 @@ namespace NewsFeed.Controllers
                 _tweets.Add(cleanTweet);
             }
             var sortedTweets = _tweets.OrderByDescending(x => x.Id);
-            return PartialView("_Tweets", sortedTweets);
+            return PartialView("~/Views/Partial/_Tweets.cshtml", sortedTweets);
         }
 
         public IActionResult Error()
