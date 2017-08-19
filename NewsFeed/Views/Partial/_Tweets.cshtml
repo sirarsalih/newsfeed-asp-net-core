@@ -10,6 +10,7 @@
             <a href="@tweet.Entity.Urls.First().UrlString">@tweet.Entity.Urls.First().UrlString</a>
         </div>
         <img src="~/images/play.png" class="play" alt="Play" onclick="speak('@tweet.Text.Replace("\"", string.Empty).Replace("\'", string.Empty)')">
+        <img src="~/images/stop.png" class="stop" alt="Stop" onclick="stopSpeaking()">
     }
     else
     {
@@ -17,6 +18,7 @@
             <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
         </div>
         <img src="~/images/play.png" class="play" alt="Play" onclick="speak('@tweet.Text.Replace("\"", string.Empty).Replace("\'", string.Empty)')">
+        <img src="~/images/stop.png" class="stop" alt="Stop" onclick="stopSpeaking()">
     }
 }
 
@@ -24,5 +26,9 @@
     function speak(text) {
         var msg = new SpeechSynthesisUtterance(text);
         window.speechSynthesis.speak(msg);
+    };
+
+    function stopSpeaking() {
+        window.speechSynthesis.cancel();
     };
 </script>
