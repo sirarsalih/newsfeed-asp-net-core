@@ -49,3 +49,9 @@ a.fill-div {
     width: 100%;
     text-decoration: none;
 }
+
+.play {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
