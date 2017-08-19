@@ -1,7 +1,4 @@
-﻿@using System.Collections
-@using System.Linq
-@using Microsoft.AspNetCore.Mvc.Rendering
-@using NewsFeed.Models
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
 @model System.Collections.Generic.IEnumerable<Tweet>
 
 <div id="tweets">
@@ -10,12 +7,8 @@
 
 <script type="text/javascript">
     window.setInterval(function() {
-        // Send an AJAX request every 5s to poll for changes and update the UI
-        // example with jquery:
         $.get('/Home/Partial', function (partialViewResult) {
             $("#tweets").html(partialViewResult);
-            // TODO: use the results returned from your controller action
-            // to update the UI
         });
     }, 300000);
 </script>
