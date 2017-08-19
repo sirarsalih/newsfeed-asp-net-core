@@ -1,33 +1,21 @@
 ﻿@using System.Collections
 @using System.Linq
+@using Microsoft.AspNetCore.Mvc.Rendering
 @using NewsFeed.Models
 @model System.Collections.Generic.IEnumerable<Tweet>
 
-@foreach (var tweet in Model)
-{
-    if (tweet.Entity.Urls.Count > 0)
-    {
-        <div class="tweet" onclick="location.href = '@tweet.Entity.Urls.First().UrlString';" style="cursor: pointer;">
-            <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
-            <a href="@tweet.Entity.Urls.First().UrlString">@tweet.Entity.Urls.First().UrlString</a>
-        </div>
-    }
-    else
-    {
-        <div class="tweet">
-            <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
-        </div>
-    }
-}
+<div id="tweets">
+    @Html.Partial("~/Views/Partial/_Tweets.cshtml") 
+</div>
 
 <script type="text/javascript">
     window.setInterval(function() {
         // Send an AJAX request every 5s to poll for changes and update the UI
         // example with jquery:
-        $.get('/', function (result) {
-            window.location = result;
+        $.get('/Home/Partial', function (partialViewResult) {
+            $("#tweets").html(partialViewResult);
             // TODO: use the results returned from your controller action
             // to update the UI
         });
-    }, 5000);
+    }, 300000);
 </script>
