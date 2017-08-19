@@ -1,4 +1,4 @@
 # newsfeed-asp-net-core
-A news feed website, built using ASP.NET Core 2.0 MVC.
+A news feed website, built using ASP.NET Core MVC.
 
 [https://worldnewsfeed.azurewebsites.net/](https://worldnewsfeed.azurewebsites.net/)
