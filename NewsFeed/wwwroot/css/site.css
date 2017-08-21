@@ -39,6 +39,7 @@ textarea {
 }
 
 .tweet {
+    width: 75%;
     margin-top: 20px;
     padding: 20px 20px 20px;
     border: 1px solid #ccc;
@@ -69,4 +70,11 @@ a.fill-div {
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+.picture {
+    display: block;
+    margin-top: 20px;
+    border-radius: 16px;
+    margin: 0 auto;
 }

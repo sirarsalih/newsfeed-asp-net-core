@@ -8,6 +8,11 @@
         <div class="tweet" onclick="location.href = '@tweet.Entity.Urls.First().UrlString';" style="cursor: pointer;">
             <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
             <a href="@tweet.Entity.Urls.First().UrlString">@tweet.Entity.Urls.First().UrlString</a>
+            @if (tweet.Entity.Media != null)
+            {
+                var url = tweet.Entity.Media.First().MediaUrlHttps + ":small";
+                <img src="@url" class="picture" />
+            }
         </div>
         if (tweet.Language != "ar")
         {
@@ -20,6 +25,11 @@
     {
         <div class="tweet">
             <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
+            @if (tweet.Entity.Media != null)
+            {
+                var url = tweet.Entity.Media.First().MediaUrlHttps + ":small";
+                <img src="@url" class="picture" />
+            }
         </div>
         if (tweet.Language != "ar")
         {

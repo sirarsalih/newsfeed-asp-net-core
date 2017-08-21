@@ -10,5 +10,8 @@ namespace NewsFeed.Models
     {
         [JsonProperty("urls")]
         public List<Url> Urls { get; set; }
+
+        [JsonProperty("media")]
+        public List<Media> Media { get; set; }
     }
 }
