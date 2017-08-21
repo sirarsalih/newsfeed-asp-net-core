@@ -64,3 +64,9 @@ a.fill-div {
     height: 30px;
     cursor: pointer;
 }
+
+.pause {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
