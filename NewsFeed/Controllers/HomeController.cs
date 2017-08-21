@@ -22,19 +22,18 @@ namespace NewsFeed.Controllers
 
         public IActionResult Index()
         {
-            foreach (var sn in _screenNames)
-            {
-                var tweetsJson = _twitterService.GetTweetsJson(sn);
-                var tweet = JsonConvert.DeserializeObject<List<Tweet>>(tweetsJson).First();
-                var cleanTweet = _twitterService.CleanText(tweet);
-                _tweets.Add(cleanTweet);
-            }
-            var sortedTweets =_tweets.OrderByDescending(x => x.Id);
+            var sortedTweets = GetSortedTweets();
             return View(sortedTweets);
         }
 
         [HttpGet]
         public IActionResult Partial()
+        {
+            var sortedTweets = GetSortedTweets();
+            return PartialView("~/Views/Partial/_Tweets.cshtml", sortedTweets);
+        }
+
+        private IOrderedEnumerable<Tweet> GetSortedTweets()
         {
             foreach (var sn in _screenNames)
             {
@@ -44,7 +43,7 @@ namespace NewsFeed.Controllers
                 _tweets.Add(cleanTweet);
             }
             var sortedTweets = _tweets.OrderByDescending(x => x.Id);
-            return PartialView("~/Views/Partial/_Tweets.cshtml", sortedTweets);
+            return sortedTweets;
         }
 
         public IActionResult Error()
