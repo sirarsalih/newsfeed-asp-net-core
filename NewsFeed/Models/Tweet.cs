@@ -25,5 +25,8 @@ namespace NewsFeed.Models
 
         [JsonProperty("entities")]
         public Entity Entity { get; set; }
+
+        [JsonProperty("lang")]
+        public string Language { get; set; }
     }
 }

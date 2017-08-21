@@ -9,18 +9,24 @@
             <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
             <a href="@tweet.Entity.Urls.First().UrlString">@tweet.Entity.Urls.First().UrlString</a>
         </div>
-        <img src="~/images/play.png" class="play" alt="Play" onclick="speak('@tweet.Text.Replace("\"", string.Empty).Replace("\'", string.Empty)')">
-        <img src="~/images/pause.png" class="pause" alt="Pause" onclick="pauseSpeaking()">
-        <img src="~/images/stop.png" class="stop" alt="Stop" onclick="stopSpeaking()">
+        if (tweet.Language != "ar")
+        {
+            <img src="~/images/play.png" class="play" alt="Play" onclick="speak('@tweet.Text.Replace("\"", string.Empty).Replace("\'", string.Empty)')">
+            <img src="~/images/pause.png" class="pause" alt="Pause" onclick="pauseSpeaking()">
+            <img src="~/images/stop.png" class="stop" alt="Stop" onclick="stopSpeaking()">
+        }
     }
     else
     {
         <div class="tweet">
             <img src="@tweet.User.ProfileImageUrlHttps"> <strong>@tweet.User.Name:</strong> @tweet.Text
         </div>
-        <img src="~/images/play.png" class="play" alt="Play" onclick="speak('@tweet.Text.Replace("\"", string.Empty).Replace("\'", string.Empty)')">
-        <img src="~/images/pause.png" class="pause" alt="Pause" onclick="pauseSpeaking()">
-        <img src="~/images/stop.png" class="stop" alt="Stop" onclick="stopSpeaking()">
+        if (tweet.Language != "ar")
+        {
+            <img src="~/images/play.png" class="play" alt="Play" onclick="speak('@tweet.Text.Replace("\"", string.Empty).Replace("\'", string.Empty)')">
+            <img src="~/images/pause.png" class="pause" alt="Pause" onclick="pauseSpeaking()">
+            <img src="~/images/stop.png" class="stop" alt="Stop" onclick="stopSpeaking()">
+        }
     }
 }
 
