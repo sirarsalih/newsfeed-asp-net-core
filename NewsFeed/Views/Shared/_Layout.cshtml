@@ -70,21 +70,74 @@
         , setmodif:function(cls){
             this.curfocus.setAttribute('class',cls);
         },
-
         allClick:function (){
             app.curfocus.setAttribute('class','clearmodif');
             app.curfocus=document.getElementById('all');
             this.setmodif('modif');
+
+            //Show all news
+            $("div[data-language]").each(function () {
+                $(this).show();
+            });
+
+            $("img[data-language]").each(function () {
+                $(this).show();
+            });
+
         },
         enClick:function (){
             app.curfocus.setAttribute('class','clearmodif');
             app.curfocus=document.getElementById('english');
             this.setmodif('modif');
+
+            //Show all news
+            $("div[data-language]").each(function () {
+                $(this).show();
+            });
+
+            $("img[data-language]").each(function () {
+                $(this).show();
+            });
+
+            //Hide arabic news
+            $("div[data-language]").each(function () {
+                if ($(this).attr('data-language') === "ar") {
+                    $(this).hide();
+                }
+            });
+
+            $("img[data-language]").each(function () {
+                if ($(this).attr('data-language') === "ar") {
+                    $(this).hide();
+                }
+            });
         },
         arClick:function (){
             app.curfocus.setAttribute('class','clearmodif');
             app.curfocus=document.getElementById('arabic');
             this.setmodif('modif');
+
+            //Show all news
+            $("div[data-language]").each(function () {
+                $(this).show();
+            });
+
+            $("img[data-language]").each(function () {
+                $(this).show();
+            });
+
+            //Hide english news
+            $("div[data-language]").each(function () {
+                if ($(this).attr('data-language') === "en") {
+                    $(this).hide();
+                }
+            });
+
+            $("img[data-language]").each(function () {
+                if ($(this).attr('data-language') === "en") {
+                    $(this).hide();
+                }
+            });
         }
     };
 </script>
