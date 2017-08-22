@@ -79,3 +79,28 @@ a.fill-div {
     max-width: 100%; 
     height: auto;
 }
+
+#all:hover {
+    background-color: darkblue !important;
+    cursor: pointer;
+}
+
+#english:hover {
+    background-color: darkblue !important;
+    cursor: pointer;
+}
+
+#arabic:hover {
+    background-color: darkblue !important;
+    cursor: pointer;
+}
+
+.modif {
+    color: white !important;
+    background-color: darkblue !important;
+    cursor: pointer;
+}
+
+.clearmodif {
+    color: white !important;
+}
