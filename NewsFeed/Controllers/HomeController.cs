@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using NewsFeed.Models;
 using NewsFeed.Services.Interfaces;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace NewsFeed.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ITwitterService _twitterService;
-        private readonly List<string> _screenNames = new List<string>() {"bbcnews", "bbcbreaking", "bbcworld", "bbcarabic", "cnn", "cnnbrk", "cnnarabic",
+        private readonly List<string> _screenNames = new List<string>() {"bbcnews", "bbcbreaking", "bbcworld", "bbcarabic", "alarabiya", "cnn", "cnnbrk", "cnnarabic",
             "reuters", "skynews", "skynewsarabia", "washingtonpost", "ap", "guardian", "nytimes", "time", "wsj" };
         private readonly List<Tweet> _tweets = new List<Tweet>();
 
