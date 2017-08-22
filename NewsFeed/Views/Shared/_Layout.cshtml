@@ -64,12 +64,15 @@
     var app={
         curfocus:document.getElementById('all')
         , setmodif: function (cls) {
-            this.curfocus.setAttribute('class', cls +' navbar-brand');
+            this.curfocus.setAttribute('class', cls + ' navbar-brand');
         },
         allClick:function (){
             app.curfocus.setAttribute('class','clearmodif navbar-brand');
             app.curfocus=document.getElementById('all');
             this.setmodif('modif');
+            $('#all').attr('selected', 'selected');
+            $('#english').removeAttr('selected');
+            $('#arabic').removeAttr('selected');
 
             //Show all news
             $("div[data-language]").each(function () {
@@ -85,6 +88,9 @@
             app.curfocus.setAttribute('class','clearmodif navbar-brand');
             app.curfocus=document.getElementById('english');
             this.setmodif('modif');
+            $('#english').attr('selected', 'selected');
+            $('#all').removeAttr('selected');
+            $('#arabic').removeAttr('selected');
 
             //Show all news
             $("div[data-language]").each(function () {
@@ -95,15 +101,15 @@
                 $(this).show();
             });
 
-            //Hide arabic news
+            //Hide non-english news
             $("div[data-language]").each(function () {
-                if ($(this).attr('data-language') === "ar") {
+                if ($(this).attr('data-language') !== "en") {
                     $(this).hide();
                 }
             });
 
             $("img[data-language]").each(function () {
-                if ($(this).attr('data-language') === "ar") {
+                if ($(this).attr('data-language') !== "en") {
                     $(this).hide();
                 }
             });
@@ -112,6 +118,9 @@
             app.curfocus.setAttribute('class','clearmodif navbar-brand');
             app.curfocus=document.getElementById('arabic');
             this.setmodif('modif');
+            $('#arabic').attr('selected', 'selected');
+            $('#all').removeAttr('selected');
+            $('#english').removeAttr('selected');
 
             //Show all news
             $("div[data-language]").each(function () {
@@ -122,15 +131,15 @@
                 $(this).show();
             });
 
-            //Hide english news
+            //Hide non-arabic news
             $("div[data-language]").each(function () {
-                if ($(this).attr('data-language') === "en") {
+                if ($(this).attr('data-language') !== "ar") {
                     $(this).hide();
                 }
             });
 
             $("img[data-language]").each(function () {
-                if ($(this).attr('data-language') === "en") {
+                if ($(this).attr('data-language') !== "ar") {
                     $(this).hide();
                 }
             });
