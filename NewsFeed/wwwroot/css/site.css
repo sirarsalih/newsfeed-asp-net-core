@@ -80,6 +80,19 @@ a.fill-div {
     height: auto;
 }
 
+#all {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+#english {
+    font-size: 14px;
+}
+
+#arabic {
+    font-size: 14px;
+}
+
 #all:hover {
     background-color: darkblue !important;
     cursor: pointer;
