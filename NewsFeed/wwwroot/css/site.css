@@ -89,6 +89,10 @@ a.fill-div {
     font-size: 14px;
 }
 
+#norwegian {
+    font-size: 14px;
+}
+
 #arabic {
     font-size: 14px;
 }
@@ -99,6 +103,11 @@ a.fill-div {
 }
 
 #english:hover {
+    background-color: darkblue !important;
+    cursor: pointer;
+}
+
+#norwegian:hover {
     background-color: darkblue !important;
     cursor: pointer;
 }

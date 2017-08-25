@@ -23,8 +23,9 @@
     <div class="container">
         <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" style="color:white">News Feed</a>
         <a id="all" onclick="app.allClick()" class="modif navbar-brand">All</a>
-        <a id="english" onclick="app.enClick()" class="clearmodif navbar-brand">English</a>
-        <a id="arabic" onclick="app.arClick()" class="clearmodif navbar-brand">Arabic</a>
+        <a id="english" onclick="app.enClick()" class="clearmodif navbar-brand">En</a>
+        <a id="norwegian" onclick="app.noClick()" class="clearmodif navbar-brand">No</a>
+        <a id="arabic" onclick="app.arClick()" class="clearmodif navbar-brand">Ar</a>
     </div>
 </nav>
 <div id="container" class="container body-content">
@@ -110,6 +111,37 @@
 
             $("img[data-language]").each(function () {
                 if ($(this).attr('data-language') !== "en") {
+                    $(this).hide();
+                }
+            });
+        },
+        noClick: function () {
+            app.curfocus.setAttribute('class', 'clearmodif navbar-brand');
+            app.curfocus = document.getElementById('norwegian');
+            this.setmodif('modif');
+            $('#norwegian').attr('selected', 'selected');
+            $('#all').removeAttr('selected');
+            $('#english').removeAttr('selected');
+            $('#arabic').removeAttr('selected');
+
+            //Show all news
+            $("div[data-language]").each(function () {
+                $(this).show();
+            });
+
+            $("img[data-language]").each(function () {
+                $(this).show();
+            });
+
+            //Hide non-norwegian news
+            $("div[data-language]").each(function () {
+                if ($(this).attr('data-language') !== "no") {
+                    $(this).hide();
+                }
+            });
+
+            $("img[data-language]").each(function () {
+                if ($(this).attr('data-language') !== "no") {
                     $(this).hide();
                 }
             });

@@ -12,6 +12,7 @@
             $("#tweets").html(partialViewResult);
 
             var englishSelected = $('#english').attr('selected');
+            var norwegianSelected = $('#norwegian').attr('selected');
             var arabicSelected = $('#arabic').attr('selected');
 
             if (typeof englishSelected !== typeof undefined && englishSelected !== false) {
@@ -24,6 +25,19 @@
 
                 $("img[data-language]").each(function () {
                     if ($(this).attr('data-language') !== "en") {
+                        $(this).hide();
+                    }
+                });
+            } else if (typeof norwegianSelected !== typeof undefined && norwegianSelected !== false) {
+                //Hide non-norwegian news
+                $("div[data-language]").each(function () {
+                    if ($(this).attr('data-language') !== "no") {
+                        $(this).hide();
+                    }
+                });
+
+                $("img[data-language]").each(function () {
+                    if ($(this).attr('data-language') !== "no") {
                         $(this).hide();
                     }
                 });
