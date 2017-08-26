@@ -14,7 +14,7 @@
                 <img src="@url" class="picture" />
             }
         </div>
-        if (tweet.Language != "ar")
+        if (tweet.Language != "ar" && tweet.Language != "no")
         {
             <img src="~/images/play.png" data-language="@tweet.Language" class="play" alt="Play" onclick="speak('@tweet.Text.Replace("\"", string.Empty).Replace("\'", string.Empty)')">
             <img src="~/images/pause.png" data-language="@tweet.Language" class="pause" alt="Pause" onclick="pauseSpeaking()">
@@ -31,7 +31,7 @@
                 <img src="@url" class="picture" />
             }
         </div>
-        if (tweet.Language != "ar")
+        if (tweet.Language != "ar" && tweet.Language != "no")
         {
             <img src="~/images/play.png" data-language="@tweet.Language" class="play" alt="Play" onclick="speak('@tweet.Text.Replace("\"", string.Empty).Replace("\'", string.Empty)')">
             <img src="~/images/pause.png" data-language="@tweet.Language" class="pause" alt="Pause" onclick="pauseSpeaking()">
